@@ -10,7 +10,9 @@
         "source=claude-code-config-${devcontainerId},target=/home/vscode/.claude,type=volume",
         "source=claude-code-bashhistory-${devcontainerId},target=/commandhistory,type=volume",
         "source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached",
-        "source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
+        "source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind",
+        "source=${localEnv:XDG_RUNTIME_DIR}/pulse/native,target=/run/pulse/native,type=bind",
+        "source=${localEnv:XDG_RUNTIME_DIR}/pipewire-0,target=/run/pipewire-0,type=bind"
     ],
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
     "workspaceFolder": "/workspace",
@@ -22,7 +24,9 @@
     },
     "containerEnv": {
         "CLAUDE_CONFIG_DIR": "/home/vscode/.claude",
-        "SSH_AUTH_SOCK": "/ssh-agent"
+        "SSH_AUTH_SOCK": "/ssh-agent",
+        "PULSE_SERVER": "unix:/run/pulse/native",
+        "PIPEWIRE_RUNTIME_DIR": "/run"
     },
     "remoteUser": "vscode",
     "updateRemoteUserUID": true

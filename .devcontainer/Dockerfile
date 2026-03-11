@@ -10,6 +10,13 @@ RUN mkdir -p /commandhistory /workspace /home/vscode/.claude && \
   
 WORKDIR /workspace
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    supercollider-language \
+    supercollider-server \
+    libasound2-plugins \
+    pipewire-jack \
+    && rm -rf /var/lib/apt/lists/*
+
 USER vscode
 
 # Set PATH early so claude and other user-installed binaries are available

@@ -1,7 +1,7 @@
 {
   "tick_rate": 30,
   "receptor": {
-    "type": "moon_receptor",
-    "args": { "timezone": "UTC" }
+    "type": "mock_generator",
+    "args": { "config_path": "receptors/mock_generator/mock_config.json" }
   }
 }

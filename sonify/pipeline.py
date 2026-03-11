@@ -1,3 +1,4 @@
+import argparse
 import json
 import time
 
@@ -18,6 +19,10 @@ def build_receptor(config):
 
 
 def run():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--verbose", "-v", action="store_true", help="Print signals as they are sent")
+    args = parser.parse_args()
+
     with open("pipeline_config.json") as f:
         config = json.load(f)
 
@@ -42,6 +47,8 @@ def run():
                     continue
 
                 controller.send(mapped)
+                if args.verbose:
+                    print(f"[{mapped['id']}] {mapped['value']}")
 
             time.sleep(tick_interval)
 
