@@ -1,0 +1,7 @@
+python-osc      # OSC send/receive 
+pyserial        # Serial sensors 
+mido            # MIDI output
+pyyaml          # Config files 
+numpy           # Math operations 
+skyfield>=1.25  # Astronomy for Python (framelib.ecliptic_frame added in 1.25)
+datetime        # Time

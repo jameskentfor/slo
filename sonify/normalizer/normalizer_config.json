@@ -1,0 +1,6 @@
+{
+  "brightness": { "min": 200, "max": 1200 },
+  "motion_x":   { "min": -1.0, "max": 1.0 },
+  "moon_phase":        { "min": 0.0, "max": 360.0 },
+  "moon_illumination": { "min": 0.0, "max": 100.0 }
+}

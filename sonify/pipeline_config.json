@@ -1,0 +1,7 @@
+{
+  "tick_rate": 30,
+  "receptor": {
+    "type": "moon_receptor",
+    "args": { "timezone": "UTC" }
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "name": "Python OSC/MIDI Dev",
+    "build": { "dockerfile": "Dockerfile" },
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    "mounts": [
+        "source=claude-code-config-${devcontainerId},target=/home/vscode/.claude,type=volume",
+        "source=claude-code-bashhistory-${devcontainerId},target=/commandhistory,type=volume",
+        "source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.ssh/id_rsa,target=/home/vscode/.ssh/id_rsa,type=bind,consistency=cached"
+    ],
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
+    "workspaceFolder": "/workspace",
+    "postCreateCommand": "bash .devcontainer/postCreate.sh",
+    "customizations": {
+        "vscode": {
+            "extensions": ["ms-python.python"]
+        }
+    },
+    "containerEnv": {
+        "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
+    },
+    "remoteUser": "vscode",
+    "updateRemoteUserUID": true
+}

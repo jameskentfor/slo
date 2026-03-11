@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+
+# Ephemeris data (download at setup)
+sonify/receptors/moon_receptor/de421.bsp
+
+# Temp files
+.tmp/
