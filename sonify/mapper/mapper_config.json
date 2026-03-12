@@ -2,5 +2,5 @@
   "brightness": "filter_cutoff",
   "motion_x":   "pan",
   "moon_phase": "filter_cutoff",
-  "moon_illumination": "pan"
+  "moon_illumination": "freq"
 }

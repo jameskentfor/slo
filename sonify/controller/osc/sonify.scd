@@ -10,8 +10,8 @@ s.waitForBoot {
 
     // Define the synth: filtered saw wave with controllable cutoff and pan.
     SynthDef(\sonify, {
-        arg cutoff = 1000, pan = 0, amp = 0.3;
-        var sig = Saw.ar(110);
+        arg cutoff = 1000, pan = 0, amp = 0.3, freq = 110;
+        var sig = Saw.ar(freq);
         sig = RLPF.ar(sig, cutoff, 0.3);
         sig = Pan2.ar(sig, pan, amp);
         Out.ar(0, sig);
@@ -40,6 +40,12 @@ s.waitForBoot {
         var pos = norm.linlin(0.0, 1.0, -1.0, 1.0);
         ~synth.set(\pan, pos);
     }, '/synth/pan');
+
+    OSCdef(\freq, {|msg|
+        var norm = msg[1];
+        var hz = norm.linlin(0.0, 1.0, 60, 1200);
+        ~synth.set(\freq, hz);
+    }, '/synth/freq');
 
     "OSC responders registered. Listening on port 57120.".postln;
 };
